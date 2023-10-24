@@ -13,8 +13,20 @@ span {
 
 .green {
   background-color: #08469f;
+  color: white;
+}
+
+.fadeIn {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+
+.fadeOut {
+  opacity: 0.7;
+  transition: opacity 0.3s;
 }
 
 .red {
   background-color: #f3c53f;
 }
+

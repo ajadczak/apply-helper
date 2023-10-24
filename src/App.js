@@ -7,18 +7,24 @@ function App() {
   const [fromSemester, setFromSemester] = useState();
   const [toSemester, setToSemester] = useState();
   const [qualifies, setQualifies] = useState(true);
+  const [calculating, setCalculating] = useState(false)
 
   useEffect(() => {
-    const yearDiff = toYear - fromYear;
-    if (yearDiff < 3) {
-      setQualifies(true);
-    } else {
-      if (yearDiff === 3) {
-        setQualifies(toSemester <= fromSemester);
+    setCalculating(true);
+    setTimeout(() => {
+      const yearDiff = toYear - fromYear;
+      if (yearDiff < 3) {
+        setQualifies(true);
       } else {
-        setQualifies(false);
+        if (yearDiff === 3) {
+          setQualifies(toSemester <= fromSemester);
+        } else {
+          setQualifies(false);
+        }
       }
-    }
+      setCalculating(false);
+    }, 200)
+    
   }, [fromYear, fromSemester, toYear, toSemester])
 
   return (
@@ -74,10 +80,10 @@ function App() {
       </table>
 
       {qualifies && (
-        <span className="green">You don't need to reapply</span>
+        <span className={["green", calculating === true ? "fadeOut" : "fadeIn"].join(" ")}>You don't need to reapply</span>
       )}
       {!qualifies && (
-        <span className="red">You need to reapply</span>
+        <span className={["red", calculating === true ? "fadeOut" : "fadeIn"].join(" ")}>You need to reapply</span>
       )}
     </div>
   );

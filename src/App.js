@@ -83,7 +83,10 @@ function App() {
         <span className={["green", calculating === true ? "fadeOut" : "fadeIn"].join(" ")}>You don't need to reapply</span>
       )}
       {!qualifies && (
-        <span className={["red", calculating === true ? "fadeOut" : "fadeIn"].join(" ")}>You need to reapply</span>
+        <div className={["red", calculating === true ? "fadeOut" : "fadeIn"].join(" ")}>
+          You need to reapply
+          <a href="">Click here to apply now</a>
+        </div>
       )}
     </div>
   );

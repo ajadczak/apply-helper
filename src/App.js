@@ -85,7 +85,7 @@ function App() {
       {!qualifies && (
         <div className={["red", calculating === true ? "fadeOut" : "fadeIn"].join(" ")}>
           You need to reapply
-          <a href="">Click here to apply now</a>
+          <a href="https://apply.ctc.edu/user">Click here to apply now</a>
         </div>
       )}
     </div>
